@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+<head>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Trajan+Pro&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: transparent; }
 
   .flyer {
@@ -335,7 +339,44 @@
     border-radius: 12px;
     letter-spacing: 1px;
   }
+
+  @media (max-width: 768px) {
+  .header-bar {
+    padding: 10px 20px; /* Reduce padding for smaller screens */
+    flex-direction: column; /* Stack header items vertically */
+    gap: 10px;
+  }
+  
+  .main-content {
+    grid-template-columns: 1fr; /* Single column instead of two */
+    gap: 20px;
+  }
+  
+  .left-col, .right-col {
+    padding: 20px; /* Reduce padding */
+  }
+  
+  .campaign-title {
+    font-size: 32px; /* Smaller title for mobile */
+  }
+  
+  .support-list {
+    grid-template-columns: 1fr; /* Single column for support items */
+  }
+  
+  .cta-section {
+    padding: 16px; /* Smaller padding */
+  }
+  
+  .footer-strip {
+    padding: 10px 20px;
+    flex-direction: column; /* Stack footer items */
+    gap: 8px;
+  }
+}
 </style>
+</head>
+
 <body>
 <div class="flyer">
   <div class="bg-shape-1"></div>
@@ -472,20 +513,20 @@
           
       <!-- Tab buttons -->
       <div style="display: flex; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 12px;">
-        <button class="story-tab active" data-tab="story1" style="background: none; border: none; color: rgba(255,255,255,0.9); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
-        <button class="story-tab" data-tab="story2" style="background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
-        <button class="story-tab" data-tab="story3" style="background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
+        <button class="story-tab active" data-tab="story1" style="background: none; border: none; color: rgba(255,255,255,0.9); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[student testimony]</button>
+        <button class="story-tab" data-tab="story2" style="background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[student testimony]</button>
+        <button class="story-tab" data-tab="story3" style="background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[student testimony]</button>
       </div>
 
       <!-- Tab content -->
       <div id="story1" class="story-content" style="display: block; font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.7;">
-        Sarah needed help with grad school applications. A senior impact fund would have covered her application fees...
+        Sarah needed help with grad school applications. This fund covered her application fees...
       </div>
       <div id="story2" class="story-content" style="display: none; font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.7;">
-        Marcus faced travel costs for interviews across the country, but couldn't go without extra funding. This fund would have allowed him to make the interview...
+        Marcus faced travel costs for interviews across the country. This fund made it possible...
       </div>
       <div id="story3" class="story-content" style="display: none; font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.7;">
-        Jamie's thesis required materials and access to professional networks. This fund would have provided her money to go to professional conferences...
+        Jamie's thesis required materials and access to professional networks. This fund provided...
       </div>
 </div>
       </div>
@@ -523,3 +564,4 @@
   });
 </script>
 </body>
+</html>

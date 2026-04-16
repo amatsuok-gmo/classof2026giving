@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/rdp8bgv.css">
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family:neue-haas-unica, sans-serif; }
   body { background: transparent; }
 
   .flyer {
@@ -72,7 +72,21 @@
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    display: inline;
   }
+
+.mobile-break {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .mobile-break {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+
 
   /* Pitzer tree SVG badge */
   .tree-badge {
@@ -173,6 +187,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 8px;
     margin-bottom: 28px;
+    font-family: neue-haas-unica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
   }
   .support-item {
     background: rgba(255,255,255,0.13);
@@ -403,9 +420,10 @@
           <img height="50px" src="https://github.com/amatsuok-gmo/YTower2026/blob/main/Pitzer%20Logo.png?raw=true">
         </a>
       </div>
-      <div>
-        <div class="college-name">Pitzer College</div>
-        <div class="committee-name" style="color:#414042"><strong>Senior Giving Committee · Class of 2026</strong></div>
+      <div style="line-height: 1;">
+        <div class="college-name" style="margin-bottom: 0px;">Pitzer College</div>
+        <div class="committee-name" style="color:#414042;"><strong>Senior Giving Committee</strong> <span class="mobile-break"><strong>· Class of 2026</strong></span>
+        </div>
       </div>
     <button onclick="window.open('https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig', '_blank')" style="position: fixed; top: 10px; right: 20px; background: #f7941d; color: #ffffff; border: none; padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1000;">Give Now</button>
     </div>
@@ -521,7 +539,7 @@
         <div class="quote-attr">— Senior Giving Committee</div>
 
         <div style="font-size:13px;color:rgba(255,255,255,0.88);line-height:1.7;margin-bottom:28px;">
-          Right now, support for seniors navigating life after Pitzer isn't always clear or accessible. This fund changes that — making sure the next generation of Sagehens has more resources and fewer financial barriers when it matters most.
+          Right now, support for seniors trying to figure out life after Pitzer isn't always clear or accessible. This fund changes that — making sure the next generation of Sagehens has more resources and fewer financial barriers when it matters most.
         </div>
         <div style="margin-bottom: 28px;">
           

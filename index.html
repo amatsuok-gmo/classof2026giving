@@ -45,12 +45,6 @@
     border-radius: 50%;
     background: rgba(255,255,255,0.05);
   }
-  .bg-accent-bar {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 8px;
-    background: #975a11;
-  }
 
   /* Top header bar */
   .header-bar {
@@ -85,13 +79,13 @@
     margin-left: 0;
   }
   button[onclick*="givecampus"] {
-  position: fixed !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  top: auto !important; /* Override desktop top position */
-  background: #ffffff !important;
-  color: #f7941d !important;
-  border: 2px solid #f7941d !important; /* Optional: add border for better visibility */
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    top: auto !important; /* Override desktop top position */
+    background: #ffffff !important;
+    color: #f7941d !important;
+    border: 2px solid #f7941d !important; /* Optional: add border for better visibility */
   }
 }
 
@@ -317,6 +311,9 @@
     font-weight: 700;
     color: #414042;
     margin-bottom: 2px;
+    font-family: adelle, serif;
+    font-weight: 700;
+    font-style: normal;
   }
   .cta-method-desc {
     font-size: 12px;
@@ -333,6 +330,10 @@
     margin: 12px 0;
   }
 
+  .button:hover {
+    background-color:#0044ff;
+   transition: 0.5s;
+  }
   /* URL pill */
   .url-pill {
     display: inline-block;
@@ -345,14 +346,36 @@
     letter-spacing: 0.5px;
     margin-top: 6px;
   }
+  
+
 
   /* Footer */
-  .footer-strip {
-    background: #414042;
-    padding: 10px 48px;
+  .footer-image-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .footer-image {
+    width: 100%;
+    max-width: none;
+    display: block;
+    height: auto;
+  }
+
+  .footer-overlay-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 18px 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
+    color: #414042;
+    backdrop-filter: blur(2px);
   }
   .footer-motto {
     font-size: 11px;
@@ -363,7 +386,7 @@
   }
   .footer-tagline {
     font-size: 11px;
-    color: rgba(255,255,255,0.5);
+    color: #414042;
     letter-spacing: 1px;
     text-transform: uppercase;
   }
@@ -410,6 +433,14 @@
     flex-direction: column; /* Stack footer items */
     gap: 8px;
   }
+
+  .full-width-footer-image {
+  width: 100%;
+  max-width: none;
+  display: block;
+  height: auto;
+  }
+
 }
 </style>
 </head>
@@ -419,7 +450,6 @@
   <div class="bg-shape-1"></div>
   <div class="bg-shape-2"></div>
   <div class="bg-shape-3"></div>
-  <div class="bg-accent-bar"></div>
 
   <!-- Header -->
   <div class="header-bar">
@@ -443,7 +473,7 @@
   <div class="main-content">
 
     <!-- Left column -->
-    <div class="left-col">
+    <div class="left-col" style="padding-left: 75px;">
       <div>
         <div class="campaign-eyebrow">Senior Class Giving Campaign</div>
         <div class="campaign-title">
@@ -537,8 +567,9 @@
     </div>
 
     <!-- Right column -->
-    <div class="right-col">
-      <div>  <img style="width: 90%;" src="https://dlmrue3jobed1.cloudfront.net/uploads/project/hero_image/71657/new_campaign_video_image_DSCF5764.jpg" alt="Description of image">
+    <div class="right-col" style="padding-right: 75px;">
+    <div class="footer-image-wrap">
+     <img class="footer-image" src="https://dlmrue3jobed1.cloudfront.net/uploads/project/hero_image/71657/new_campaign_video_image_DSCF5764.jpg" alt="Description of image">
         <br>
         <br>
         <div class="section-eyebrow">the impact</div>
@@ -551,7 +582,7 @@
           Right now, support for seniors trying to figure out life after Pitzer isn't always clear or accessible. This fund changes that — making sure the next generation of Sagehens has more resources and fewer financial barriers when it matters most.
         </div>
         <div style="margin-bottom: 28px;">
-          
+      <div class="section-eyebrow">Alumni testimony</div>    
       <!-- Tab buttons -->
       <div style="display: flex; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 12px;">
         <button class="story-tab active" data-tab="story1" style="background: none; border: none; color: rgba(255,255,255,0.9); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
@@ -571,17 +602,28 @@
       </div>
 </div>
       </div>
-
-      
       
     </div>
   </div>
+  </div>
+  </div>
 
-  <!-- Footer -->
-  <div class="footer-strip">
+<div class="footer-image-wrap">
+  <img
+    class="footer-image"
+    src="https://www.pitzer.edu/sites/default/files/styles/1440x1089/public/2024-06/_DSC6779.jpg?h=19de1b5b&itok=MnjO7lh4"
+    alt="Grove house at Pitzer College"
+  />
+  <div class="footer-overlay-strip">
     <div class="footer-motto">Provida Futuri</div>
-    <div class="footer-tagline">Created by Class of 2026 Giving Committee</div>
-    <div style="font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.5px;"><a href link="https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig" style="color: #ffffff">GiveCampus</a></div>
+    <div class="footer-tagline" style="text-align: center;">Created by Class of 2026 Giving Committee<br>designed by Aaron Matsuoka</div>
+    <div class="footer-link">
+      <a
+        href="https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig"
+        target="_blank"
+        style="display: inline-block; background: #f7941d; color: #fff; border: none; padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;"
+      >GiveCampus</a>
+    </div>
   </div>
 </div>
 

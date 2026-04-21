@@ -1,0 +1,276 @@
+@charset "UTF-8";
+
+/* Skip link */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    z-index: 9999;
+    background: #054F63;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: neue-haas-unica, sans-serif;
+  }
+  .skip-link:focus { left: 8px; }
+
+  /* Global focus indicator — WCAG 2.4.11 */
+  *:focus-visible {
+    outline: 3px solid #054F63;
+    outline-offset: 2px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: neue-haas-unica, sans-serif; }
+  body { background: transparent; }
+
+  .flyer {
+    width: 100%;
+    max-width: 1900px;
+    min-height: 1080px;
+    margin: 0 auto;
+    background: #f7941d;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: neue-haas-unica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .bg-shape-1 {
+    position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .bg-shape-2 {
+    position: absolute; bottom: -60px; left: -60px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: rgba(0,0,0,0.06);
+  }
+  .bg-shape-3 {
+    position: absolute; top: 50%; left: -40px;
+    transform: translateY(-50%);
+    width: 180px; height: 180px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .header-bar {
+    background: #ffffff;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .college-name {
+    color: #f7941d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  /* #414042 on white = 7.7:1 contrast — passes AA */
+  .committee-name {
+    color: #414042;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: inline;
+  }
+  .mobile-break { display: inline; }
+
+  /* Give Now as proper link-button */
+  .give-now-btn {
+    position: fixed;
+    top: 10px; right: 20px;
+    background: #f7941d;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    display: inline-block;
+    font-family: neue-haas-unica, sans-serif;
+  }
+
+  .tree-badge {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .left-col {
+    padding: 44px 40px 44px 75px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .campaign-eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 12px;
+  }
+  .campaign-title {
+    font-size: 42px; font-weight: 700; color: #ffffff;
+    line-height: 1.1; margin-bottom: 10px;
+    text-transform: uppercase; letter-spacing: -0.5px;
+    font-family: neue-haas-unica, sans-serif; font-style: normal;
+  }
+  .campaign-subtitle {
+    font-size: 14px; color: rgba(255,255,255,0.9);
+    line-height: 1.6; margin-bottom: 28px; max-width: 380px;
+    font-family: neue-haas-unica, sans-serif; font-weight: 500; font-style: italic;
+  }
+
+  .fund-box {
+    background: rgba(255,255,255,0.15);
+    border-left: 4px solid #ffffff;
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px; margin-bottom: 28px;
+  }
+  .fund-box-label {
+    font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 6px;
+  }
+  .fund-box-title {
+    font-size: 18px; font-weight: 700; color: #ffffff;
+    margin-bottom: 8px; font-family: adelle, serif; font-style: normal;
+  }
+  .fund-box-desc { font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.6; }
+
+  /* Semantic list — no built-in bullets, dot via ::before */
+  .support-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 28px; list-style: none;
+    font-family: neue-haas-unica, sans-serif; font-weight: 700; font-style: normal;
+  }
+  .support-item {
+    background: rgba(255,255,255,0.13); border-radius: 6px;
+    padding: 10px 12px; display: flex; align-items: flex-start; gap: 8px;
+  }
+  .support-item::before {
+    content: ''; width: 6px; height: 6px; background: #ffffff;
+    border-radius: 50%; margin-top: 8px; flex-shrink: 0;
+  }
+  .support-item-text {
+    font-size: 14px; color: #ffffff; font-weight: 400; line-height: 1.4;
+    font-family: neue-haas-unica, sans-serif; font-style: normal;
+  }
+
+  .divider { width: 48px; height: 3px; background: #ffffff; border-radius: 2px; margin-bottom: 24px; }
+
+  .right-col {
+    background: rgba(0,0,0,0.12);
+    padding: 44px 75px 44px 40px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+
+  .section-eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 14px;
+  }
+
+  .quote-block {
+    font-size: 23px; color: #ffffff; line-height: 1.5;
+    font-family: freight-text-pro, serif; font-weight: 700; font-style: italic;
+    margin-bottom: 8px; position: relative; padding-left: 18px;
+  }
+  .quote-block::before {
+    content: '\201C'; position: absolute; left: 0; top: -4px;
+    font-size: 32px; color: rgba(255,255,255,0.6); font-style: normal; line-height: 1;
+  }
+  .quote-attr {
+    font-size: 13px; color: rgba(255,255,255,0.9);
+    font-style: italic; padding-left: 18px; margin-bottom: 28px;
+  }
+
+  .cta-section {
+    background: #ffffff; border-radius: 12px; padding: 24px; margin-bottom: 20px;
+  }
+  .cta-title {
+    font-size: 14px; font-weight: 700; color: #414042;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;
+  }
+  .cta-method { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .cta-method:last-child { margin-bottom: 0; }
+  .cta-icon {
+    width: 32px; height: 32px; background: #f7941d; border-radius: 8px;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .cta-icon svg { width: 16px; height: 16px; }
+  .cta-method-title {
+    font-size: 13px; font-weight: 700; color: #414042; margin-bottom: 2px;
+    font-family: adelle, serif; font-style: normal;
+  }
+  .cta-method-desc { font-size: 13px; color: #414042; line-height: 1.4; }
+  .cta-method-desc a { color: #054F63; font-weight: 700; }
+  .cta-method-desc strong { color: #cf4b27; font-weight: 700; }
+  .cta-divider { height: 1px; background: #eee; margin: 12px 0; }
+
+  .footer-image-wrap { position: relative; width: 100%; overflow: hidden; }
+  .footer-image { width: 100%; max-width: none; display: block; height: auto; }
+  .footer-overlay-strip {
+    position: absolute; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.85);
+    padding: 18px 48px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    color: #414042; backdrop-filter: blur(2px);
+  }
+  .footer-motto {
+    font-size: 13px; color: #f7941d; letter-spacing: 2px;
+    text-transform: uppercase; font-style: italic; font-weight: 700;
+  }
+  .footer-tagline { font-size: 13px; color: #414042; letter-spacing: 1px; text-transform: uppercase; }
+  .footer-give-link {
+    display: inline-block; background: #f7941d; color: #ffffff;
+    padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 700;
+    cursor: pointer; text-decoration: none; font-family: neue-haas-unica, sans-serif;
+  }
+
+  /* Tab widget */
+  .tab-list {
+    display: flex; gap: 10px; margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 12px;
+  }
+  .story-tab {
+    background: none; border: none; border-bottom: 2px solid transparent;
+    color: rgba(255,255,255,0.6); cursor: pointer; font-size: 13px; font-weight: 700;
+    padding: 6px 12px; font-family: neue-haas-unica, sans-serif;
+  }
+  .story-tab[aria-selected="true"] {
+    color: rgba(255,255,255,0.95);
+    border-bottom: 2px solid #ffffff;
+  }
+  .story-tab:focus-visible { border-radius: 2px; }
+
+  @media (max-width: 768px) {
+    .give-now-btn {
+      position: fixed !important; bottom: 20px !important; right: 20px !important;
+      top: auto !important; background: #ffffff !important;
+      color: #f7941d !important; border: 2px solid #f7941d !important;
+    }
+    .mobile-break { display: block; margin-left: 0; }
+    .header-bar { padding: 10px 20px; flex-direction: column; gap: 10px; }
+    .main-content { grid-template-columns: 1fr; gap: 20px; }
+    .left-col, .right-col { padding: 20px; }
+    .campaign-title { font-size: 32px; }
+    .support-list { grid-template-columns: 1fr; }
+    .cta-section { padding: 16px; }
+    .footer-overlay-strip { padding: 10px 20px; flex-direction: column; gap: 8px; }
+    .footer-image { width: 100%; max-width: none; display: block; height: auto; }
+  }

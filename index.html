@@ -1,11 +1,35 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Class of 2026 Giving Campaign</title>
-  
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitzer College Senior Giving Campaign — Class of 2026</title>
   <link rel="stylesheet" href="https://use.typekit.net/rdp8bgv.css">
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family:neue-haas-unica, sans-serif; }
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    z-index: 9999;
+    background: #054F63;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: neue-haas-unica, sans-serif;
+  }
+  .skip-link:focus { left: 8px; }
+
+  /* Global focus indicator — WCAG 2.4.11 */
+  *:focus-visible {
+    outline: 3px solid #054F63;
+    outline-offset: 2px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: neue-haas-unica, sans-serif; }
   body { background: transparent; }
 
   .flyer {
@@ -23,31 +47,23 @@
     font-style: normal;
   }
 
-  /* Geometric background shapes */
   .bg-shape-1 {
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
+    position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px; border-radius: 50%;
     background: rgba(255,255,255,0.08);
   }
   .bg-shape-2 {
-    position: absolute;
-    bottom: -60px; left: -60px;
-    width: 260px; height: 260px;
-    border-radius: 50%;
+    position: absolute; bottom: -60px; left: -60px;
+    width: 260px; height: 260px; border-radius: 50%;
     background: rgba(0,0,0,0.06);
   }
   .bg-shape-3 {
-    position: absolute;
-    top: 50%; left: -40px;
+    position: absolute; top: 50%; left: -40px;
     transform: translateY(-50%);
-    width: 180px; height: 180px;
-    border-radius: 50%;
+    width: 180px; height: 180px; border-radius: 50%;
     background: rgba(255,255,255,0.05);
   }
 
-  /* Top header bar */
   .header-bar {
     background: #ffffff;
     padding: 10px 40px;
@@ -55,55 +71,47 @@
     align-items: center;
     justify-content: space-between;
   }
-  .header-bar .college-name {
+  .college-name {
     color: #f7941d;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
-  .header-bar .committee-name {
-    color: rgba(255,255,255,0.7);
-    font-size: 11px;
+  /* #414042 on white = 7.7:1 contrast — passes AA */
+  .committee-name {
+    color: #414042;
+    font-size: 13px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     display: inline;
   }
+  .mobile-break { display: inline; }
 
-.mobile-break {
-  display: inline;
-}
-
-@media (max-width: 768px) {
-  .mobile-break {
-    display: block;
-    margin-left: 0;
+  /* Give Now as proper link-button */
+  .give-now-btn {
+    position: fixed;
+    top: 10px; right: 20px;
+    background: #f7941d;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    display: inline-block;
+    font-family: neue-haas-unica, sans-serif;
   }
-  button[onclick*="givecampus"] {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    top: auto !important; /* Override desktop top position */
-    background: #ffffff !important;
-    color: #f7941d !important;
-    border: 2px solid #f7941d !important; /* Optional: add border for better visibility */
-  }
-}
 
-
-
-  /* Pitzer tree SVG badge */
   .tree-badge {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
 
-  /* Main content */
   .main-content {
     flex: 1;
     display: grid;
@@ -113,537 +121,398 @@
     z-index: 1;
   }
 
-  /* Left column */
   .left-col {
     padding: 44px 40px 44px 75px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex; flex-direction: column; justify-content: space-between;
   }
   .campaign-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.9);
     margin-bottom: 12px;
   }
   .campaign-title {
-    font-size: 42px;
-    font-weight: 900;
-    color: #ffffff;
-    line-height: 1.1;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    font-family: neue-haas-unica, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  .campaign-title .highlight {
-    color: #414042;
+    font-size: 42px; font-weight: 700; color: #ffffff;
+    line-height: 1.1; margin-bottom: 10px;
+    text-transform: uppercase; letter-spacing: -0.5px;
+    font-family: neue-haas-unica, sans-serif; font-style: normal;
   }
   .campaign-subtitle {
-    font-size: 14px;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.6;
-    margin-bottom: 28px;
-    max-width: 380px;
-    font-family: neue-haas-unica, sans-serif;
-    font-weight: 500;
-    font-style: italic;
+    font-size: 14px; color: rgba(255,255,255,0.9);
+    line-height: 1.6; margin-bottom: 28px; max-width: 380px;
+    font-family: neue-haas-unica, sans-serif; font-weight: 500; font-style: italic;
   }
 
-  /* Fund description box */
   .fund-box {
     background: rgba(255,255,255,0.15);
     border-left: 4px solid #ffffff;
     border-radius: 0 8px 8px 0;
-    padding: 18px 20px;
-    margin-bottom: 28px;
+    padding: 18px 20px; margin-bottom: 28px;
   }
   .fund-box-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 6px;
+    font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 6px;
   }
   .fund-box-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-    font-family: adelle, serif;
-    font-weight: 700;
-    font-style: normal;
+    font-size: 18px; font-weight: 700; color: #ffffff;
+    margin-bottom: 8px; font-family: adelle, serif; font-style: normal;
   }
-  .fund-box-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.6;
-  }
+  .fund-box-desc { font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.6; }
 
-  /* Support items */
+  /* Semantic list — no built-in bullets, dot via ::before */
   .support-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 28px;
-    font-family: neue-haas-unica, sans-serif;
-    font-weight: 700;
-    font-style: normal;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 28px; list-style: none;
+    font-family: neue-haas-unica, sans-serif; font-weight: 700; font-style: normal;
   }
   .support-item {
-    background: rgba(255,255,255,0.13);
-    border-radius: 6px;
-    padding: 10px 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    background: rgba(255,255,255,0.13); border-radius: 6px;
+    padding: 10px 12px; display: flex; align-items: flex-start; gap: 8px;
   }
-  .support-dot {
-    width: 6px;
-    height: 6px;
-    background: #ffffff;
-    border-radius: 50%;
-    margin-top: 5px;
-    flex-shrink: 0;
+  .support-item::before {
+    content: ''; width: 6px; height: 6px; background: #ffffff;
+    border-radius: 50%; margin-top: 8px; flex-shrink: 0;
   }
   .support-item-text {
-    font-size: 12px;
-    color: #ffffff;
-    font-weight: 500;
-    line-height: 1.4;
+    font-size: 14px; color: #ffffff; font-weight: 400; line-height: 1.4;
+    font-family: neue-haas-unica, sans-serif; font-style: normal;
   }
 
-  /* Divider line */
-  .divider {
-    width: 48px;
-    height: 3px;
-    background: #ffffff;
-    border-radius: 2px;
-    margin-bottom: 24px;
-  }
+  .divider { width: 48px; height: 3px; background: #ffffff; border-radius: 2px; margin-bottom: 24px; }
 
-  /* Right column */
   .right-col {
     background: rgba(0,0,0,0.12);
     padding: 44px 75px 44px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex; flex-direction: column; justify-content: space-between;
   }
 
   .section-eyebrow {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 14px;
+    font-size: 13px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 14px;
   }
 
   .quote-block {
-    font-size: 23px;
-    color: #ffffff;
-    line-height: 1.5;
-    font-family: freighttextcmp-pro, serif;
-    font-weight: 700;
-    font-style: italic;
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 18px;
+    font-size: 23px; color: #ffffff; line-height: 1.5;
+    font-family: freight-text-pro, serif; font-weight: 700; font-style: italic;
+    margin-bottom: 8px; position: relative; padding-left: 18px;
   }
   .quote-block::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: -4px;
-    font-size: 32px;
-    color: rgba(255,255,255,0.4);
-    font-style: normal;
-    line-height: 1;
+    content: '\201C'; position: absolute; left: 0; top: -4px;
+    font-size: 32px; color: rgba(255,255,255,0.6); font-style: normal; line-height: 1;
   }
   .quote-attr {
-    font-size: 12px;
-    color: rgba(255,255,255,0.65);
-    font-style: italic;
-    padding-left: 18px;
-    margin-bottom: 28px;
+    font-size: 13px; color: rgba(255,255,255,0.9);
+    font-style: italic; padding-left: 18px; margin-bottom: 28px;
   }
 
-  /* CTA section */
   .cta-section {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 20px;
+    background: #ffffff; border-radius: 12px; padding: 24px; margin-bottom: 20px;
   }
   .cta-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #414042;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 16px;
+    font-size: 14px; font-weight: 700; color: #414042;
+    text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;
   }
-  .cta-method {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
+  .cta-method { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
   .cta-method:last-child { margin-bottom: 0; }
   .cta-icon {
-    width: 32px;
-    height: 32px;
-    background: #f7941d;
-    border-radius: 8px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 32px; height: 32px; background: #f7941d; border-radius: 8px;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   }
   .cta-icon svg { width: 16px; height: 16px; }
   .cta-method-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #414042;
-    margin-bottom: 2px;
-    font-family: adelle, serif;
-    font-weight: 700;
-    font-style: normal;
+    font-size: 13px; font-weight: 700; color: #414042; margin-bottom: 2px;
+    font-family: adelle, serif; font-style: normal;
   }
-  .cta-method-desc {
-    font-size: 12px;
-    color: #666;
-    line-height: 1.4;
-  }
-  .cta-method-desc strong {
-    color: #cf4b27;
-    font-weight: 700;
-  }
-  .cta-divider {
-    height: 1px;
-    background: #eee;
-    margin: 12px 0;
-  }
+  .cta-method-desc { font-size: 13px; color: #414042; line-height: 1.4; }
+  .cta-method-desc a { color: #054F63; font-weight: 700; }
+  .cta-method-desc strong { color: #cf4b27; font-weight: 700; }
+  .cta-divider { height: 1px; background: #eee; margin: 12px 0; }
 
-  .button:hover {
-    background-color:#0044ff;
-   transition: 0.5s;
-  }
-  /* URL pill */
-  .url-pill {
-    display: inline-block;
-    background: #f7941d;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 20px;
-    letter-spacing: 0.5px;
-    margin-top: 6px;
-  }
-  
-
-
-  /* Footer */
-  .footer-image-wrap {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .footer-image {
-    width: 100%;
-    max-width: none;
-    display: block;
-    height: auto;
-  }
-
+  .footer-image-wrap { position: relative; width: 100%; overflow: hidden; }
+  .footer-image { width: 100%; max-width: none; display: block; height: auto; }
   .footer-overlay-strip {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.75);
+    position: absolute; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.85);
     padding: 18px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    color: #414042;
-    backdrop-filter: blur(2px);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    color: #414042; backdrop-filter: blur(2px);
   }
   .footer-motto {
-    font-size: 11px;
-    color: #f7941d;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-style: italic;
+    font-size: 13px; color: #f7941d; letter-spacing: 2px;
+    text-transform: uppercase; font-style: italic; font-weight: 700;
   }
-  .footer-tagline {
-    font-size: 11px;
-    color: #414042;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  .footer-tagline { font-size: 13px; color: #414042; letter-spacing: 1px; text-transform: uppercase; }
+  .footer-give-link {
+    display: inline-block; background: #f7941d; color: #ffffff;
+    padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 700;
+    cursor: pointer; text-decoration: none; font-family: neue-haas-unica, sans-serif;
   }
-  .class-year-badge {
-    background: #f7941d;
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 12px;
-    letter-spacing: 1px;
+
+  /* Tab widget */
+  .tab-list {
+    display: flex; gap: 10px; margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 12px;
   }
+  .story-tab {
+    background: none; border: none; border-bottom: 2px solid transparent;
+    color: rgba(255,255,255,0.6); cursor: pointer; font-size: 13px; font-weight: 700;
+    padding: 6px 12px; font-family: neue-haas-unica, sans-serif;
+  }
+  .story-tab[aria-selected="true"] {
+    color: rgba(255,255,255,0.95);
+    border-bottom: 2px solid #ffffff;
+  }
+  .story-tab:focus-visible { border-radius: 2px; }
 
   @media (max-width: 768px) {
-  .header-bar {
-    padding: 10px 20px; /* Reduce padding for smaller screens */
-    flex-direction: column; /* Stack header items vertically */
-    gap: 10px;
+    .give-now-btn {
+      position: fixed !important; bottom: 20px !important; right: 20px !important;
+      top: auto !important; background: #ffffff !important;
+      color: #f7941d !important; border: 2px solid #f7941d !important;
+    }
+    .mobile-break { display: block; margin-left: 0; }
+    .header-bar { padding: 10px 20px; flex-direction: column; gap: 10px; }
+    .main-content { grid-template-columns: 1fr; gap: 20px; }
+    .left-col, .right-col { padding: 20px; }
+    .campaign-title { font-size: 32px; }
+    .support-list { grid-template-columns: 1fr; }
+    .cta-section { padding: 16px; }
+    .footer-overlay-strip { padding: 10px 20px; flex-direction: column; gap: 8px; }
+    .footer-image { width: 100%; max-width: none; display: block; height: auto; }
   }
-  
-  .main-content {
-    grid-template-columns: 1fr; /* Single column instead of two */
-    gap: 20px;
-  }
-  
-  .left-col, .right-col {
-    padding: 20px; /* Reduce padding */
-  }
-  
-  .campaign-title {
-    font-size: 32px; /* Smaller title for mobile */
-  }
-  
-  .support-list {
-    grid-template-columns: 1fr; /* Single column for support items */
-  }
-  
-  .cta-section {
-    padding: 16px; /* Smaller padding */
-  }
-  
-  .footer-strip {
-    padding: 10px 20px;
-    flex-direction: column; /* Stack footer items */
-    gap: 8px;
-  }
-
-  .full-width-footer-image {
-  width: 100%;
-  max-width: none;
-  display: block;
-  height: auto;
-  }
-
-}
 </style>
 </head>
 
 <body>
-<div class="flyer">
-  <div class="bg-shape-1"></div>
-  <div class="bg-shape-2"></div>
-  <div class="bg-shape-3"></div>
+  <!-- Skip navigation — WCAG 2.4.1 -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Header -->
-  <div class="header-bar">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <div class="tree-badge">
-        <a href="https://www.pitzer.edu" target="_blank">
-          <img height="50px" src="https://github.com/amatsuok-gmo/YTower2026/blob/main/Pitzer%20Logo.png?raw=true">
-        </a>
-      </div>
-      <div style="line-height: 1;">
-        <div class="college-name" style="margin-bottom: 0px;">Pitzer College</div>
-        <div class="committee-name" style="color:#414042;"><strong>Senior Giving Committee</strong> <span class="mobile-break"><strong>· Class of 2026</strong></span>
+  <!-- Give Now: proper anchor, not onclick button — WCAG 4.1.2 -->
+  <a
+    href="https://www.givecampus.com/campaigns/71657/donations/new"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="give-now-btn"
+    aria-label="Give Now — opens GiveCampus donation page in a new tab"
+  >Give Now</a>
+
+  <div class="flyer">
+    <!-- Decorative shapes hidden from screen readers — WCAG 1.1.1 -->
+    <div class="bg-shape-1" aria-hidden="true"></div>
+    <div class="bg-shape-2" aria-hidden="true"></div>
+    <div class="bg-shape-3" aria-hidden="true"></div>
+
+    <!-- Semantic header — WCAG 1.3.1 -->
+    <header class="header-bar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="tree-badge">
+          <a
+            href="https://www.pitzer.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Pitzer College homepage (opens in new tab)"
+          >
+            <!-- Meaningful alt text — WCAG 1.1.1 -->
+            <img
+              height="50"
+              src="https://github.com/amatsuok-gmo/YTower2026/blob/main/Pitzer%20Logo.png?raw=true"
+              alt="Pitzer College logo"
+            >
+          </a>
+        </div>
+        <div style="line-height:1;">
+          <p class="college-name" style="margin-bottom:0;">Pitzer College</p>
+          <p class="committee-name"><strong>Senior Giving Committee</strong> <span class="mobile-break"><strong>· Class of 2026</strong></span></p>
         </div>
       </div>
-    <button onclick="window.open('https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig', '_blank')" style="position: fixed; top: 10px; right: 20px; background: #f7941d; color: #ffffff; border: none; padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1000;">Give Now</button>
-    </div>
-    </div>
-  
+    </header>
 
-  <!-- Main -->
-  <div class="main-content">
+    <!-- Semantic main — WCAG 1.3.1, 2.4.1 -->
+    <main id="main-content">
+      <div class="main-content">
 
-    <!-- Left column -->
-    <div class="left-col">
-      <div>
-        <div class="campaign-eyebrow">Senior Class Giving Campaign</div>
-        <div class="campaign-title">
-          Honor<br>the Path,<br><span style="color:#054F63; text-transform: lowercase; font-family: 'Freight-Text-Pro', serif; font-family: 'freight-text-pro', serif; font-weight: 700; font-style: italic;">&nbsp;Fuel&nbsp;</span>the<br>Future.
-        </div>
-        <div class="campaign-subtitle">
-          We're turning our Pitzer experience into something lasting — a fund built by seniors, for seniors, that removes real barriers and opens real doors.
-        </div>
+        <!-- Left column -->
+        <div class="left-col">
+          <div>
+            <p class="campaign-eyebrow">Senior Class Giving Campaign</p>
+            <!-- Heading hierarchy — WCAG 1.3.1 -->
+            <h1 class="campaign-title">
+              Honor<br>the Path,<br><span style="color:#054F63; text-transform:lowercase; font-family:'freight-text-pro',serif; font-weight:700; font-style:italic;">&nbsp;Fuel&nbsp;</span>the<br>Future.
+            </h1>
+            <p class="campaign-subtitle">
+              We're turning our Pitzer experience into something lasting — a fund built by seniors, for seniors, that removes real barriers and opens real doors.
+            </p>
 
-        <div class="fund-box">
-          <div class="fund-box-label">About the fund</div>
-          <div class="fund-box-title">Senior Class Impact Fund</div>
-          <div class="fund-box-desc">
-            Designed by the Class of 2026 Giving Committee, this new fund will support graduating seniors facing financial pressure as they take their next steps after Pitzer. Alleviating financial burdens will remove obstacles and increase access to resources, experiences, and opportunities for all seniors — setting them up for success and propelling them forward on their future paths.
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:10px;">What it supports</div>
-        <div class="support-list">
-          <div class="support-item">
-            <div class="support-dot"></div>
-            <div class="support-item-text">Grad school application fees</div>
-          </div>
-          <div class="support-item">
-            <div class="support-dot"></div>
-            <div class="support-item-text">Interview travel costs</div>
-          </div>
-          <div class="support-item">
-            <div class="support-dot"></div>
-            <div class="support-item-text">Fellowship programs</div>
-          </div>
-          <div class="support-item">
-            <div class="support-dot"></div>
-            <div class="support-item-text">Thesis materials</div>
-          </div>
-          <div class="support-item">
-            <div class="support-dot"></div>
-            <div class="support-item-text">Professional networks</div>
-          </div>
-          <div class="support-item">
-            <div class="support-dot"></div>
-            <div class="support-item-text">Access to opportunities</div>
-          </div>
-        </div><br>
-      </div>
-      <!-- CTA Box -->
-      <div>
-        <div class="cta-section">
-          <div class="cta-title">How to give</div>
-
-          <div class="cta-method">
-            <div class="cta-icon">
-              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="3" width="14" height="10" rx="2" stroke="white" stroke-width="1.5"/>
-                <path d="M1 6h14" stroke="white" stroke-width="1.5"/>
-                <circle cx="4.5" cy="9.5" r="1" fill="white"/>
-              </svg>
+            <div class="fund-box">
+              <p class="fund-box-label">About the fund</p>
+              <h2 class="fund-box-title">Senior Class Impact Fund</h2>
+              <p class="fund-box-desc">
+                Designed by the Class of 2026 Giving Committee, this new fund will support graduating seniors facing financial pressure as they take their next steps after Pitzer. Alleviating financial burdens will remove obstacles and increase access to resources, experiences, and opportunities for all seniors — setting them up for success and propelling them forward on their future paths.
+              </p>
             </div>
-            <div>
-              <div class="cta-method-title">Give online</div>
-              <div class="cta-method-desc">Visit <strong><a href=https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig target="_blank">GiveCampus campaign</a></strong> and select "Senior Class Fund" in the designation field.</div>
-            </div>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <h2 class="section-eyebrow">What it supports</h2>
+            <!-- Semantic list — WCAG 1.3.1 -->
+            <ul class="support-list" aria-label="What the Senior Class Impact Fund supports">
+              <li class="support-item"><span class="support-item-text">Grad school application fees</span></li>
+              <li class="support-item"><span class="support-item-text">Interview travel costs</span></li>
+              <li class="support-item"><span class="support-item-text">Fellowship programs</span></li>
+              <li class="support-item"><span class="support-item-text">Thesis materials</span></li>
+              <li class="support-item"><span class="support-item-text">Professional networks</span></li>
+              <li class="support-item"><span class="support-item-text">Access to opportunities</span></li>
+            </ul>
           </div>
 
-          <div class="cta-divider"></div>
+          <!-- CTA Box -->
+          <div>
+            <section class="cta-section" aria-label="How to give">
+              <h2 class="cta-title">How to give</h2>
 
-          <div class="cta-method">
-            <div class="cta-icon">
-              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5s4.5-5 4.5-8.5c0-2.5-2-4.5-4.5-4.5z" stroke="white" stroke-width="1.5"/>
-                <circle cx="8" cy="6" r="1.5" fill="white"/>
-              </svg>
+              <div class="cta-method">
+                <!-- SVG icons decorative — WCAG 1.1.1 -->
+                <div class="cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <rect x="1" y="3" width="14" height="10" rx="2" stroke="white" stroke-width="1.5"/>
+                    <path d="M1 6h14" stroke="white" stroke-width="1.5"/>
+                    <circle cx="4.5" cy="9.5" r="1" fill="white"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="cta-method-title">Give online</p>
+                  <p class="cta-method-desc">Visit the <strong><a href="https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig" target="_blank" rel="noopener noreferrer" aria-label="GiveCampus campaign page (opens in new tab)">GiveCampus campaign</a></strong> and select <strong>"Senior Impact Fund"</strong> in the designation field.</p>
+                </div>
+              </div>
+
+              <div class="cta-divider" aria-hidden="true"></div>
+
+              <div class="cta-method">
+                <div class="cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path d="M8 1.5C5.5 1.5 3.5 3.5 3.5 6c0 3.5 4.5 8.5 4.5 8.5s4.5-5 4.5-8.5c0-2.5-2-4.5-4.5-4.5z" stroke="white" stroke-width="1.5"/>
+                    <circle cx="8" cy="6" r="1.5" fill="white"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="cta-method-title">Visit our table</p>
+                  <p class="cta-method-desc">
+                    <strong>Wed Apr 15 &amp; Fri Apr 17</strong><br>
+                    11am – 12pm · McConnell Lobby
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <p style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.6;text-align:center;">
+              Share with family &amp; friends who've been part of your journey.<br>
+              Every contribution directly impacts future Pitzer seniors.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="right-col">
+          <div>
+            <!-- Meaningful alt text — WCAG 1.1.1 -->
+            <div class="footer-image-wrap">
+              <img
+                class="footer-image"
+                src="https://dlmrue3jobed1.cloudfront.net/uploads/project/hero_image/71657/new_campaign_video_image_DSCF5764.jpg"
+                alt="Pitzer College Class of 2026 students at a campus gathering"
+              >
             </div>
-            <div>
-              <div class="cta-method-title">Visit our table</div>
-              <div class="cta-method-desc">
-                <strong>Wed Apr 16 &amp; Fri Apr 17</strong><br>
-                11am – 12pm · McConnell Lobby
+
+            <br><br>
+
+            <h2 class="section-eyebrow">The impact</h2>
+            <blockquote class="quote-block">
+              Let's leave something behind that actually matters.
+            </blockquote>
+            <p class="quote-attr">— Senior Giving Committee</p>
+
+            <p style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.7;margin-bottom:28px;">
+              Right now, support for seniors trying to figure out life after Pitzer isn't always clear or accessible. This fund changes that — making sure the next generation of Sagehens has more resources and fewer financial barriers when it matters most.
+            </p>
+
+            <div style="margin-bottom:28px;">
+              <h2 class="section-eyebrow">Alumni testimony</h2>
+
+              <!-- ARIA tab widget — WCAG 4.1.2, arrow key navigation per APG -->
+              <div role="tablist" aria-label="Alumni testimonies" class="tab-list">
+                <button class="story-tab" role="tab" id="tab-story1" aria-selected="true"  aria-controls="story1">[alumni testimony]</button>
+                <button class="story-tab" role="tab" id="tab-story2" aria-selected="false" aria-controls="story2" tabindex="-1">[alumni testimony]</button>
+                <button class="story-tab" role="tab" id="tab-story3" aria-selected="false" aria-controls="story3" tabindex="-1">[alumni testimony]</button>
+              </div>
+
+              <div id="story1" role="tabpanel" aria-labelledby="tab-story1" style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.7;">
+                Sarah needed help with grad school applications. This fund would have covered her application fees...
+              </div>
+              <div id="story2" role="tabpanel" aria-labelledby="tab-story2" hidden style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.7;">
+                Marcus faced travel costs for interviews across the country. This fund would have made it possible...
+              </div>
+              <div id="story3" role="tabpanel" aria-labelledby="tab-story3" hidden style="font-size:13px;color:rgba(255,255,255,0.9);line-height:1.7;">
+                Jamie's thesis required materials and access to professional networks. This fund would have provided...
               </div>
             </div>
           </div>
         </div>
 
-        <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6;text-align:center;">
-          Share with family &amp; friends who've been part of your journey.<br>
-          Every contribution directly impacts future Pitzer seniors.
-        </div>
       </div>
-    </div>
+    </main>
+  </div>
 
-    <!-- Right column -->
-    <div class="right-col">
+  <!-- Semantic footer — WCAG 1.3.1 -->
+  <footer>
     <div class="footer-image-wrap">
-     <img class="footer-image" src="https://dlmrue3jobed1.cloudfront.net/uploads/project/hero_image/71657/new_campaign_video_image_DSCF5764.jpg" alt="Description of image">
-        <br>
-        <br>
-        <div class="section-eyebrow">the impact</div>
-        <div class="quote-block">
-          Let's leave something behind that actually matters.
-        </div>
-        <div class="quote-attr">— Senior Giving Committee</div>
-
-        <div style="font-size:13px;color:rgba(255,255,255,0.88);line-height:1.7;margin-bottom:28px;">
-          Right now, support for seniors trying to figure out life after Pitzer isn't always clear or accessible. This fund changes that — making sure the next generation of Sagehens has more resources and fewer financial barriers when it matters most.
-        </div>
-        <div style="margin-bottom: 28px;">
-      <div class="section-eyebrow">Alumni testimony</div>    
-      <!-- Tab buttons -->
-      <div style="display: flex; gap: 10px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 12px;">
-        <button class="story-tab active" data-tab="story1" style="background: none; border: none; color: rgba(255,255,255,0.9); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
-        <button class="story-tab" data-tab="story2" style="background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
-        <button class="story-tab" data-tab="story3" style="background: none; border: none; color: rgba(255,255,255,0.6); cursor: pointer; font-size: 12px; font-weight: 700; padding: 6px 12px; border-bottom: 2px solid transparent;">[alumni testimony]</button>
+      <img
+        class="footer-image"
+        src="https://www.pitzer.edu/sites/default/files/styles/1440x1089/public/2024-06/_DSC6779.jpg?h=19de1b5b&itok=MnjO7lh4"
+        alt="Grove House at Pitzer College campus"
+      />
+      <div class="footer-overlay-strip">
+        <p class="footer-motto">Provida Futuri</p>
+        <p class="footer-tagline" style="text-align:center;">Created by Class of 2026 Giving Committee<br>Designed by Aaron Matsuoka '26</p>
+        <!-- Anchor link not button — WCAG 4.1.2; new tab warning — WCAG 3.2.2 -->
+        <a
+          href="https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-give-link"
+          aria-label="Donate on GiveCampus (opens in new tab)"
+        >GiveCampus</a>
       </div>
-
-      <!-- Tab content -->
-      <div id="story1" class="story-content" style="display: block; font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.7;">
-        Sarah needed help with grad school applications. This fund would have covered her application fees...
-      </div>
-      <div id="story2" class="story-content" style="display: none; font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.7;">
-        Marcus faced travel costs for interviews across the country. This fund would have made it possible...
-      </div>
-      <div id="story3" class="story-content" style="display: none; font-size: 13px; color: rgba(255,255,255,0.88); line-height: 1.7;">
-        Jamie's thesis required materials and access to professional networks. This fund would have provided...
-      </div>
-</div>
-      </div>
-      
     </div>
-  </div>
-  </div>
-  </div>
-
-<div class="footer-image-wrap">
-  <img
-    class="footer-image"
-    src="https://www.pitzer.edu/sites/default/files/styles/1440x1089/public/2024-06/_DSC6779.jpg?h=19de1b5b&itok=MnjO7lh4"
-    alt="Grove house at Pitzer College"
-  />
-  <div class="footer-overlay-strip">
-    <div class="footer-motto">Provida Futuri</div>
-    <div class="footer-tagline" style="text-align: center;">Created by Class of 2026 Giving Committee<br>designed by Aaron Matsuoka</div>
-    <div class="footer-link">
-      <a
-        href="https://www.givecampus.com/schools/PitzerCollege/honor-the-path-fuel-the-future-class-of-2026-giving/?a=13013379&bbeml=tp-QvtZSBQuy0OTSqwobLr7Dg.jdc6YkiSVZEu9tXdcI4Ehuw.rDbrvNflnwUyFRj1FvLODkw.lS7cgcRld3U-GaXHN5Mwkig"
-        target="_blank"
-        style="display: inline-block; background: #f7941d; color: #fff; border: none; padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;"
-      >GiveCampus</a>
-    </div>
-  </div>
-</div>
+  </footer>
 
 <script>
-  document.querySelectorAll('.story-tab').forEach(button => {
-    button.addEventListener('click', function() {
-      // Hide all content
-      document.querySelectorAll('.story-content').forEach(el => el.style.display = 'none');
-      
-      // Update button styles
-      document.querySelectorAll('.story-tab').forEach(btn => {
-        btn.style.color = 'rgba(255,255,255,0.6)';
-        btn.style.borderBottom = '2px solid transparent';
-      });
-      
-      // Show selected content
-      document.getElementById(this.dataset.tab).style.display = 'block';
-      this.style.color = 'rgba(255,255,255,0.9)';
-      this.style.borderBottom = '2px solid #ffffff';
+  // ARIA tab widget with keyboard navigation (ARIA APG roving tabindex pattern)
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const panels = document.querySelectorAll('[role="tabpanel"]');
+
+  function activateTab(tab) {
+    tabs.forEach(t => {
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+    panels.forEach(p => { p.hidden = true; });
+    tab.setAttribute('aria-selected', 'true');
+    tab.removeAttribute('tabindex');
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = false;
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', e => {
+      let idx;
+      if (e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') idx = 0;
+      else if (e.key === 'End') idx = tabs.length - 1;
+      else return;
+      e.preventDefault();
+      activateTab(tabs[idx]);
+      tabs[idx].focus();
     });
   });
 </script>
